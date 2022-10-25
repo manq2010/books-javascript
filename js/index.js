@@ -1,9 +1,9 @@
 // Array Constructor
 class BookList {
-    constructor(author, title){
-        this.author = author;
-        this.title = title;
-    }
+  constructor(author, title) {
+    this.author = author;
+    this.title = title;
+  }
 
 }
 
@@ -11,76 +11,73 @@ class BookList {
 
 // Storage Functions
 
-const getBooks = () => {
-  let books;
-  if (localStorage.getItem('books') === null) {
-    books = [];
-  } else {
-    books = JSON.parse(localStorage.getItem('books'));
-  }
-  return books;
-};
+class Storage {
 
-const addBookStr = (book) => {
-  const books = getBooks();
-  books.push(book);
-  localStorage.setItem('books', JSON.stringify(books));
-};
-
-const deleteBookStr = (bookIndex) => {
-  const books = getBooks();
-
-  books.forEach((book, index) => {
-    if (bookIndex === index) {
-      books.splice(index, 1);
+  static getBooks = () => {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
     }
-  });
-  localStorage.setItem('books', JSON.stringify(books));
-};
+    return books;
+  };
+
+  static addBookStr = (book) => {
+    const books = Storage.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  };
+
+  static deleteBookStr = (bookIndex) => {
+    const books = Storage.getBooks();
+
+    books.forEach((book, index) => {
+      if (bookIndex === index) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+  };
+
+}
 
 // Array UI
 class UserInterface {
-    static renderBooks = () =>{
-        const booksDisp = getBooks();
-        const books = booksDisp;
-        books.forEach((book) => UserInterface.addBook(book));
-    };
+  static renderBooks = () => {
+    const booksDisp = Storage.getBooks();
+    const books = booksDisp;
+    books.forEach((book) => UserInterface.addBook(book));
+  };
 
+  static addBook = (book) => {
+    const list = document.querySelector('.container-books');
+    const div = document.createElement('div');
+    div.classList.add('list-container');
 
-
-    static addBook = (book) => {
-        const list = document.querySelector('.container-books');
-        const div = document.createElement('div');
-        div.classList.add('list-container');
-      
-      
-        div.innerHTML = `
+    div.innerHTML = `
         <h3>${book.title}</h3>
         <p>${book.author}</p>
         <a href="" class="btn btn-danger btn-sm remove"> Remove </a>
         <hr> `;
 
-        list.appendChild(div);
-      };
-      
-      static deleteBookList = (element) => {
-        if (element.classList.contains('remove')) {
-          element.parentElement.remove();
-        }
-      };
+    list.appendChild(div);
+  };
 
+  static deleteBookList = (element) => {
+    if (element.classList.contains('remove')) {
+      element.parentElement.remove();
+    }
+  };
 
-      static clearFormInputs = () => {
-        title.value = '';
-        author.value = '';
-      };
-
-    
+  static clearFormInputs = () => {
+    title.value = '';
+    author.value = '';
+  };
 };
 
 //Event renderBooks
-document.addEventListener('DOMContentLoaded', UserInterface.renderBooks)
-
+document.addEventListener('DOMContentLoaded', UserInterface.renderBooks);
 
 // const addBook = (book) => {
 //   const list = document.querySelector('.container-books');
@@ -119,12 +116,12 @@ const formBook = document.querySelector('#book-form');
 
 formBook.addEventListener('submit', (e) => {
   e.preventDefault();
-//   booksObject.title = title.value;
-//   booksObject.author = author.value;
+  //   booksObject.title = title.value;
+  //   booksObject.author = author.value;
 
-const booksObject = new BookList(author, title);
+  const booksObject = new BookList(author.value, title.value);
 
-console.log(booksObject)
+  console.log(booksObject)
   // validation and Alerts
   if (title.value === '' || author.value === '') {
     //
@@ -133,12 +130,12 @@ console.log(booksObject)
     UserInterface.addBook(booksObject);
 
     // add book to storage
-    addBookStr(booksObject);
+    Storage.addBookStr(booksObject);
     // clear form
     UserInterface.clearFormInputs();
   }
 
-//   window.location.reload();
+  // window.location.reload();
 });
 
 // remove a book
@@ -149,6 +146,8 @@ remove.forEach((deleteBook, index) => {
   deleteBook.addEventListener('click', (e) => {
     e.preventDefault();
     UserInterface.deleteBookList(e.target);
-    deleteBookStr(index);
+    Storage.deleteBookStr(index);
+    // window.location.reload();
+    console.log('click');
   });
 });
