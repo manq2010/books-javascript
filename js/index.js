@@ -4,19 +4,45 @@ const booksObject = new Object();
 // const booksObject = new Object.create();
 
 // Storage
+const getBooks = () =>{
+    let books;
+    if (localStorage.getItem('books')===null){
+        books= [];
+    }else{
+        books = JSON.parse(localStorage.getItem('books'))
+    }
+    return books;
+}
+
+const addBookStr = (book) => {
+const books = getBooks();
+books.push(book)
+localStorage.setItem('books', JSON.stringify(books));
+}
+
+const deleteBookStr = (bookIndex) => {
+const books = getBooks();
+books.forEach((book, index)=>{
+    console.log(index, book)
+    if(bookIndex===index){
+        books.splice(index, 1)
+    } 
+})
+localStorage.setItem('books', JSON.stringify(books));
+}
 
 // Array UI
-
-const books = [
-    {
-        title: 'Man',
-        author: 'Two',
-    },
-    {
-        title: 'Festus',
-        author: 'One',
-    }
-]
+const books = getBooks();
+// const books = [
+//     {
+//         title: 'Man',
+//         author: 'Two',
+//     },
+//     {
+//         title: 'Festus',
+//         author: 'One',
+//     }
+// ]
 
 // function: Add book
 const addBook = (book) => {
@@ -73,7 +99,8 @@ formBook.addEventListener('submit', (e) => {
     } else {
         // add book to defined array
         addBook(booksObject);
-
+        //add book to storage
+        addBookStr(booksObject);
         // clear form
         clearFormInputs();
     }
@@ -91,6 +118,7 @@ remove.forEach((deleteBook, index) => {
         // console.log(e.target.classList.contains('remove'))
 
         deleteBookList(e.target);
+        deleteBookStr(index)
     })
 });
 
