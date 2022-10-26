@@ -1,0 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.navi-cont{
+  display: flex;
+  justify-content: space-around;
+  background-color: blanchedalmond;
+  padding: 0.5rem;
+}
+
+.nav-menu {
+  align-items: center;
+  list-style-type: none;
+}
+.nav-item > a {
+text-decoration: none;
+margin-left: 1rem;
+font-size: 1rem;
+}
+.logo{
+  text-decoration: none;
+}
+
