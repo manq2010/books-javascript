@@ -102,3 +102,26 @@ form.addEventListener('submit', (e) => {
 });
 
 DisplayBook.getLs();
+
+const listBtnId = document.querySelector('#home');
+const AddNewBtnId = document.querySelector('#add-book');
+const contactBtnId = document.querySelector('#contact');
+
+const listBtn = document.querySelector('.home');
+const AddNewBtn = document.querySelector('.add-book');
+const contactBtn = document.querySelector('.contact');
+
+listBtn.addEventListener('click', () => {
+  AddNewBtnId.classList.add('close');
+  contactBtnId.classList.add('close');
+});
+
+AddNewBtn.addEventListener('click', () => {
+  listBtnId.classList.add('close');
+  contactBtnId.classList.add('close');
+});
+
+contactBtn.addEventListener('click', () => {
+  AddNewBtnId.classList.add('close');
+  listBtnId.classList.add('close');
+});

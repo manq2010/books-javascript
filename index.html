@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Awesome books: plain JavaScript with objects</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -16,56 +16,67 @@
         <a class="logo navi-cont"> Awesome Books</a>
         <nav>
             <ul class="nav-menu navi-cont">
-                <li class="nav-item">
-                  <a href="">List</a>  
+                <li class="nav-item home">
+                    <a href="#home">List</a>
                 </li>
-                <li class="nav-item">
-                   <a href="">Add New</a> 
+                <li class="nav-item add-book">
+                    <a href="#add-book">Add New</a>
                 </li>
-                <li class="nav-item">
-                   <a href="">Contact</a> 
+                <li class="nav-item contact">
+                    <a href="#contact">Contact</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <section>
-   
+    <section id="home" class="container mt-3">
+
         <div class="container">
-        <h3 class="text-center mt-3">
-            All awesome books
-        </h3>
-        <div class="container-books mt-3 border border-dark rounded d-flex flex-column"></div>
-    </div>
+            <h3 class="text-center mt-3">
+                All awesome books
+            </h3>
+            <div class="container-books mt-3 border border-dark rounded d-flex flex-column"></div>
+        </div>
     </section>
 
-    <section>
-            <div class="container">
-        <h3 class="text-center mt-3">
-            Add a new Book
-        </h2>
+    <section id="add-book" class="container mt-3">
+        <div class="container">
+            <h3 class="text-center mt-3">
+                Add a new Book
+                </h2>
 
-        <form class="text-center" id="book-form">
-            <div class="d-flex justify-content-center ">
-                <label for="title" class='form-label'></label>
-                <input type="text" id="title" class="form-control" placeholder="Title" required>
-            </div>
-            <div class="">
-                <label for="author" class='form-label'></label>
-                <input type="text" id="author" class="form-control" placeholder="Author" required>
-            </div>
-            <button type="submit" class="justify-content-end btn btn-outline-dark mt-3 border-end border-bottom border-4 border-dark">Add</button>
-        </form>
+                <form class="text-center" id="book-form">
+                    <div class="d-flex justify-content-center ">
+                        <label for="title" class='form-label'></label>
+                        <input type="text" id="title" class="form-control" placeholder="Title" required>
+                    </div>
+                    <div class="">
+                        <label for="author" class='form-label'></label>
+                        <input type="text" id="author" class="form-control" placeholder="Author" required>
+                    </div>
+                    <button type="submit"
+                        class="justify-content-end btn btn-outline-dark mt-3 border-end border-bottom border-4 border-dark">Add</button>
+                </form>
 
-    </div>
-</section>
+        </div>
+    </section>
 
-<section>
-    <div>
-    <h2>Contact Information</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, laudantium.</p>
-</div>
-</section>
+    <section id="contact" class="container mt-3 text-center">
+        <div>
+            <h2>Contact Information</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, laudantium.</p>
+            <ul class="list-contact text-start">
+                <li>Our email: festus@mancoba.com</li>
+                <li>Our phone number: 001122334455</li>
+                <li>Our address: Accra, Ghana, 27318 city</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="container d-flex border">
+        <p class="text-start d-flex">Copyright
+        </p>
+    </footer>
     <script src="js/index.js"></script>
 </body>
 

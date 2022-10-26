@@ -3,7 +3,12 @@
   margin: 0;
   box-sizing: border-box;
 }
-.navi-cont{
+
+html {
+  /* font-size: 62.5%; */
+}
+
+.navi-cont {
   display: flex;
   justify-content: space-around;
   background-color: blanchedalmond;
@@ -14,12 +19,18 @@
   align-items: center;
   list-style-type: none;
 }
+
 .nav-item > a {
-text-decoration: none;
-margin-left: 1rem;
-font-size: 1rem;
-}
-.logo{
   text-decoration: none;
+  margin-left: 1rem;
+  font-size: 1.6rem;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.close {
+  display: none;
 }
 
