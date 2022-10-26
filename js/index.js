@@ -1,7 +1,4 @@
 // Array Constructor
-
-const booksObject = {};
-
 class Booklist {
   constructor(title, author) {
     this.title = title;
@@ -11,35 +8,39 @@ class Booklist {
 
 // Storage Functions
 
-const getBooks = () => {
-  let books;
-  if (localStorage.getItem('books') === null) {
-    books = [];
-  } else {
-    books = JSON.parse(localStorage.getItem('books'));
-  }
-  return books;
-};
-
-const addBookStr = (book) => {
-  const books = getBooks();
-  books.push(book);
-  localStorage.setItem('books', JSON.stringify(books));
-};
-
-const deleteBookStr = (bookIndex) => {
-  const books = getBooks();
-
-  books.forEach((book, index) => {
-    if (bookIndex === index) {
-      books.splice(index, 1);
+/* eslint max-classes-per-file: ["error", 2] */
+class Storage {
+  static getBooks = () => {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
     }
-  });
-  localStorage.setItem('books', JSON.stringify(books));
-};
+    return books;
+  };
+
+  static addBookStr = (book) => {
+    const books = this.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  };
+
+  static deleteBookStr = (bookIndex) => {
+    const books = this.getBooks();
+
+    books.forEach((book, index) => {
+      if (bookIndex === index) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+  };
+}
 
 // Array UI
-const books = getBooks();
+
+const books = Storage.getBooks();
 
 const addBook = (book) => {
   const list = document.querySelector('.container-books');
@@ -48,9 +49,11 @@ const addBook = (book) => {
   list.appendChild(div);
 
   div.innerHTML = `
-  <h3>${book.title}</h3>
-  <p>${book.author}</p>
-  <a href="" class="btn btn-danger btn-sm remove"> Remove </a>
+  <div class="book-details d-flex flex-row m-1 justify-content-between">
+  <div class="d-flex flex-row">
+  <h4>${book.title}</h4>
+  <p class="ps-5 h6">${book.author}</p>
+  <a href="" class="btn btn-outline-dark btn-sm border-end border-bottom border-4 border-dark remove"> Remove </a>
   <hr> `;
 };
 
@@ -58,6 +61,8 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 
 const clearFormInputs = () => {
+  const title = document.querySelector('#title');
+  const author = document.querySelector('#author');
   title.value = '';
   author.value = '';
 };
@@ -78,7 +83,7 @@ const formBook = document.querySelector('#book-form');
 
 formBook.addEventListener('submit', (e) => {
   e.preventDefault();
- 
+
   const booksObject = new Booklist(title.value, author.value);
 
   // validation and Alerts
@@ -89,7 +94,7 @@ formBook.addEventListener('submit', (e) => {
     addBook(booksObject);
 
     // add book to storage
-    addBookStr(booksObject);
+    Storage.addBookStr(booksObject);
     // clear form
     clearFormInputs();
   }
@@ -105,6 +110,6 @@ remove.forEach((deleteBook, index) => {
   deleteBook.addEventListener('click', (e) => {
     e.preventDefault();
     deleteBookList(e.target);
-    deleteBookStr(index);
+    Storage.deleteBookStr(index);
   });
 });
