@@ -7,8 +7,9 @@ class Book {
 
 const forLs = [];
 
-class DisplayBook {
+/* eslint max-classes-per-file: ["error", 2] */
 
+class DisplayBook {
   static addBook(newBook, index) {
     const library = document.querySelector('.container-books');
     if (!localStorage.getItem('books')) {
@@ -69,7 +70,7 @@ class DisplayBook {
   }
 }
 
-//formInput
+// formInput
 
 const form = document.querySelector('#book-form');
 
