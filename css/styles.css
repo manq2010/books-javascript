@@ -1,18 +1,15 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-html {
-  /* font-size: 62.5%; */
-}
-
 .navi-cont {
   display: flex;
   justify-content: space-around;
-  background-color: blanchedalmond;
+  background-color: rgb(213, 209, 203);
   padding: 0.5rem;
+  color: rgba(18, 14, 14, 0.77);
 }
 
 .nav-menu {
@@ -24,13 +21,14 @@ html {
   text-decoration: none;
   margin-left: 1rem;
   font-size: 1.6rem;
+  color: rgba(18, 14, 14, 0.77);
 }
 
 .logo {
   text-decoration: none;
+  font-size: 2rem;
 }
 
 .close {
   display: none;
 }
-

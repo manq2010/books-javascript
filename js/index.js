@@ -114,14 +114,17 @@ const contactBtn = document.querySelector('.contact');
 listBtn.addEventListener('click', () => {
   AddNewBtnId.classList.add('close');
   contactBtnId.classList.add('close');
+  listBtnId.classList.remove('close');
 });
 
 AddNewBtn.addEventListener('click', () => {
   listBtnId.classList.add('close');
   contactBtnId.classList.add('close');
+  AddNewBtnId.classList.remove('close');
 });
 
 contactBtn.addEventListener('click', () => {
   AddNewBtnId.classList.add('close');
   listBtnId.classList.add('close');
+  contactBtnId.classList.remove('close');
 });
