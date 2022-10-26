@@ -2,6 +2,13 @@
 
 const booksObject = {};
 
+class Booklist {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
 // Storage Functions
 
 const getBooks = () => {
@@ -71,8 +78,8 @@ const formBook = document.querySelector('#book-form');
 
 formBook.addEventListener('submit', (e) => {
   e.preventDefault();
-  booksObject.title = title.value;
-  booksObject.author = author.value;
+ 
+  const booksObject = new Booklist(title.value, author.value);
 
   // validation and Alerts
   if (title.value === '' || author.value === '') {
