@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <header class="navi-cont">
-        <a class="logo navi-cont"> Awesome Books</a>
+
+    <header class="navi-cont container-fluid">
+        <a class="logo navi-cont d-none d-sm-block"> Awesome Books</a>
         <nav>
             <ul class="nav-menu navi-cont">
                 <li class="nav-item home">
@@ -29,7 +30,7 @@
         </nav>
     </header>
 
-    <section id="home" class="container mt-3">
+    <section id="home" class="mt-3 container-fluid">
 
         <div class="container">
             <h3 class="text-center mt-3">
@@ -39,7 +40,7 @@
         </div>
     </section>
 
-    <section id="add-book" class="container mt-3 close">
+    <section id="add-book" class="mt-3 close container-fluid">
         <div class="container">
             <h3 class="text-center mt-3">
                 Add a new Book
@@ -61,20 +62,25 @@
         </div>
     </section>
 
-    <section id="contact" class="container mt-3 text-center close">
-        <div>
+    <section id="contact" class="container mt-3 text-center close container-fluid">
+        <div class="text-center">
             <h2>Contact Information</h2>
             <p class="h6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, laudantium.</p>
             <ul class="list-contact text-start">
-                <li>Our email: festus@mancoba.com</li>
+                <li>Our email: manq2010@gmail.com</li>
+                <li>Our phone number: 001122334455</li>
+                <li>Our address: Johanessburg, South Africa</li>
+            </ul>
+            <ul class="list-contact text-start mt-3">
+                <li>Our email: festus@gmail.com</li>
                 <li>Our phone number: 001122334455</li>
                 <li>Our address: Accra, Ghana, 27318 city</li>
             </ul>
         </div>
     </section>
-
-    <footer class="container d-flex border mt-3 mb-5 pt-3 fixed-bottom">
-        <p class="text-start d-flex">Copyright
+    
+    <footer class="container d-flex border mt-3 mb-1 pt-3 fixed-bottom">
+        <p class="text-start d-flex">Copyright &copy 2022 Awesome Books
         </p>
     </footer>
     <script src="js/index.js"></script>
