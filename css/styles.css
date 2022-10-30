@@ -14,6 +14,8 @@ html {
 
 body {
   font-family: lato, sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .navi-cont {
