@@ -103,28 +103,38 @@ form.addEventListener('submit', (e) => {
 
 DisplayBook.getLs();
 
-const listBtnId = document.querySelector('#home');
-const AddNewBtnId = document.querySelector('#add-book');
-const contactBtnId = document.querySelector('#contact');
+const navItems = Array.from(
+  document.querySelectorAll('.nav-menu')[0].children,
+);
 
-const listBtn = document.querySelector('.home');
-const AddNewBtn = document.querySelector('.add-book');
-const contactBtn = document.querySelector('.contact');
+const navigationLinks = (el) => {
+  const listBtnId = document.querySelector('#home');
+  const AddNewBtnId = document.querySelector('#add-book');
+  const contactBtnId = document.querySelector('#contact');
 
-listBtn.addEventListener('click', () => {
-  AddNewBtnId.classList.add('close');
-  contactBtnId.classList.add('close');
-  listBtnId.classList.remove('close');
-});
+  switch (el) {
+    case 'home-li':
+      AddNewBtnId.classList.add('close');
+      contactBtnId.classList.add('close');
+      listBtnId.classList.remove('close');
+      break;
+    case 'add-book-li':
+      listBtnId.classList.add('close');
+      contactBtnId.classList.add('close');
+      AddNewBtnId.classList.remove('close');
+      break;
+    case 'contact-li':
+      AddNewBtnId.classList.add('close');
+      listBtnId.classList.add('close');
+      contactBtnId.classList.remove('close');
+      break;
+    default:
+      break;
+  }
+};
 
-AddNewBtn.addEventListener('click', () => {
-  listBtnId.classList.add('close');
-  contactBtnId.classList.add('close');
-  AddNewBtnId.classList.remove('close');
-});
-
-contactBtn.addEventListener('click', () => {
-  AddNewBtnId.classList.add('close');
-  listBtnId.classList.add('close');
-  contactBtnId.classList.remove('close');
+navItems.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    navigationLinks(e.target.parentElement.id);
+  });
 });
