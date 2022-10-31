@@ -21,6 +21,5 @@
     "ignorePatterns": [
       "dist/",
       "build/"
-    ],
-    "eslintIgnore": ["luxon.js"]
+    ]
   }
