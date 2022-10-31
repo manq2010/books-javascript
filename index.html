@@ -7,34 +7,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <script src="js/index.js" defer></script>
     <title>Awesome books: plain JavaScript with objects</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="text-center">
-            Awesome Books
-        </h1>
 
-        <div class="container-books mt-3">
-            
+    <header class="navi-cont container-fluid">
+        <a class="logo navi-cont d-none d-sm-block"> Awesome Books</a>
+        <nav>
+            <ul class="nav-menu navi-cont">
+                <li id="home-li" class="nav-item home">
+                    <a href="#home">List</a>
+                </li>
+                <li id="add-book-li" class="nav-item add-book">
+                    <a href="#add-book">Add New</a>
+                </li>
+                <li id="contact-li" class="nav-item contact">
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="mt-3 container-fluid">
+
+        <div class="container">
+            <h3 class="text-center mt-3">
+                All awesome books
+            </h3>
+            <div class="container-books mt-3 border border-dark rounded d-flex flex-column"></div>
         </div>
+    </section>
 
-        <form id="book-form">
-            <div class="">
-                <label for="title" class='form-label'></label>
-                <input type="text" id="title" class="form-control" placeholder="Title" required>
-            </div>
-            <div class="">
-                <label for="author" class='form-label'></label>
-                <input type="text" id="author" class="form-control" placeholder="Author" required>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Add</button>
-        </form>
+    <section id="add-book" class="mt-3 close container-fluid">
+        <div class="container">
+            <h3 class="text-center mt-3">
+                Add a new Book
+                </h2>
 
+                <form class="text-center" id="book-form">
+                    <div class="d-flex justify-content-center ">
+                        <label for="title" class='form-label'></label>
+                        <input type="text" id="title" class="form-control" placeholder="Title" required>
+                    </div>
+                    <div class="">
+                        <label for="author" class='form-label'></label>
+                        <input type="text" id="author" class="form-control" placeholder="Author" required>
+                    </div>
+                    <button type="submit"
+                        class="justify-content-end btn btn-outline-dark mt-3 border-end border-bottom border-4 border-dark">Add</button>
+                </form>
 
-    </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container mt-3 text-center close container-fluid">
+        <div class="text-center">
+            <h2>Contact Information</h2>
+            <p class="h6">Please reach us on the below detials:</p>
+            <ul class="list-contact text-start">
+                <li>Mancoba</li>
+                <li><a href="https://linkfree.eddiehub.io/manq2010">my bio</a></li>
+                <li>Johanessburg - South Africa</li>
+            </ul>
+            <ul class="list-contact text-start mt-3">
+                <li>Festus</li>
+                <li><a href="https://github.com/Enning94">github</a></li>
+                <li>Our address: Accra, Ghana, 27318 city</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="container d-flex border mt-3 pt-3 fixed-bottom bg-light">
+        <p class="text-start d-flex">Copyright &copy 2022 Awesome Books
+        </p>
+    </footer>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
