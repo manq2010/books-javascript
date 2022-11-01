@@ -18,12 +18,12 @@ body {
   /* overflow-y: auto;
   overflow-x: hidden; */
   overflow: auto;
+  font-size: 1.6rem;
 }
 
 .navi-cont {
   display: flex;
   justify-content: space-around;
-  background-color: rgb(213, 209, 203);
   padding: 0.5rem;
   color: rgba(18, 14, 14, 0.77);
 }
@@ -35,16 +35,23 @@ body {
 
 .nav-item > a {
   text-decoration: none;
+  display: flex;
   margin-left: 1rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: rgba(18, 14, 14, 0.77);
 }
 
 .logo {
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .close {
   display: none;
+}
+
+.logo:hover,
+.nav-item > a:hover {
+  color: rgb(15, 15, 15);
+  scale: 1.02;
 }

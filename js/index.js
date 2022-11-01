@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Display Time
   setInterval(() => {
     currentTime();
   }, 1000);
