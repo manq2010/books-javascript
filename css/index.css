@@ -14,9 +14,6 @@ html {
 
 body {
   font-family: lato, sans-serif;
-
-  /* overflow-y: auto;
-  overflow-x: hidden; */
   overflow: auto;
   font-size: 1.6rem;
 }
